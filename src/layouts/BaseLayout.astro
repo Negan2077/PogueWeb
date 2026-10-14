@@ -1,0 +1,39 @@
+---
+// Base HTML shell for every page: meta, fonts and global styles.
+import '@fontsource-variable/albert-sans';
+import '@fontsource-variable/jetbrains-mono';
+import '../styles/tokens.css';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Keep pages out of search engines until launch (Iteration 7). */
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description = 'Animation, 2D illustration and filmmaking.',
+  noindex = true,
+} = Astro.props;
+
+const siteName = '[STUDIO NAME]';
+const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#111114" />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

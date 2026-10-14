@@ -1,43 +1,45 @@
-# Astro Starter Kit: Minimal
+# [STUDIO NAME] — Website
 
-```sh
-pnpm create astro@latest -- --template minimal
+The website of [STUDIO NAME], a production house making animation, 2D illustration and films. Video-led, dark "Silver Screen" design, built to turn visitors into enquiries.
+
+## Stack
+
+| Layer     | Choice                                              | Decision                                              |
+| --------- | --------------------------------------------------- | ----------------------------------------------------- |
+| Framework | Astro 6 + TypeScript (strict), Node 22 LTS          | [ADR-0002](docs/decisions/0002-framework-astro.md)    |
+| Hosting   | Cloudflare Pages (preview deploy per pull request)  | [ADR-0003](docs/decisions/0003-hosting-cloudflare.md) |
+| Content   | Astro content collections → Sanity from Iteration 2 | [ADR-0004](docs/decisions/0004-content-sanity.md)     |
+| Video     | Bunny Stream                                        | [ADR-0005](docs/decisions/0005-video-bunny-stream.md) |
+| Enquiries | Astro action + Turnstile + Resend + Google Sheet    | [ADR-0006](docs/decisions/0006-enquiry-pipeline.md)   |
+| Styling   | Plain CSS + design tokens, self-hosted fonts        | [ADR-0007](docs/decisions/0007-styling-css-tokens.md) |
+
+## Getting started
+
+```bash
+nvm use            # Node version from .nvmrc (22.x)
+pnpm install
+pnpm dev           # http://localhost:4321
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+| Script                      | What it does                         |
+| --------------------------- | ------------------------------------ |
+| `pnpm dev`                  | Local development server             |
+| `pnpm build`                | Production build into `dist/`        |
+| `pnpm preview`              | Serve the production build locally   |
+| `pnpm check`                | Astro type and content-schema checks |
+| `pnpm lint` / `pnpm format` | ESLint / Prettier                    |
 
-## 🚀 Project Structure
+Secrets (Resend, Turnstile, Google, Sanity tokens) live in `.env` locally and in Cloudflare environment variables in production. See `.env.example`. Never commit `.env`.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Documentation
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Everything about how and why this site is built lives in [`docs/`](docs/README.md):
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+- **Decisions** — why each tool was chosen (ADRs)
+- **Iterations** — the plan, log and review of each iteration
+- **Design** — tokens, type and components, matching the design canvas
+- **Conventions** — branches, commits, releases
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Status
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Current iteration: **0 — Foundations**. See [`docs/iterations/`](docs/iterations/) and [`CHANGELOG.md`](CHANGELOG.md).

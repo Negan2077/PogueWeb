@@ -1,16 +1,44 @@
 ---
+// Temporary holding page. Replaced by the real Home page in Iteration 1.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="[STUDIO NAME]">
+  <main class="holding container">
+    <p class="label">Iteration 0 · Foundations</p>
+    <h1 class="holding__title">
+      <span class="outline-text">Stories in motion.</span> Coming soon.
+    </h1>
+    <p class="holding__lead">
+      Animation, 2D illustration and filmmaking. The new [STUDIO NAME] website is being built.
+    </p>
+    <Button href="/styleguide" variant="secondary">
+      View the styleguide
+    </Button>
+  </main>
+</BaseLayout>
+
+<style>
+  .holding {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--space-5);
+  }
+
+  .holding__title {
+    max-width: 14ch;
+    font-size: var(--text-display);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-display);
+  }
+
+  .holding__lead {
+    max-width: 40rem;
+    font-size: var(--text-lead);
+    color: var(--color-text-muted);
+  }
+</style>

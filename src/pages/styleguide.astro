@@ -1,0 +1,334 @@
+---
+// Living styleguide: every token and base component in one place.
+// Check this page on a phone in every pull request that touches styles.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+
+const colours = [
+  { token: '--color-bg', value: '#111114', use: 'Page background' },
+  { token: '--color-surface', value: '#24242B', use: 'Video and image frames' },
+  { token: '--color-surface-raised', value: '#1B1B20', use: 'Panels and inputs' },
+  { token: '--color-border', value: '#2E2E36', use: 'Hairlines' },
+  { token: '--color-border-strong', value: '#4A4A55', use: 'Card outlines' },
+  { token: '--color-border-input', value: '#6B6B78', use: 'Form fields' },
+  { token: '--color-text', value: '#F2EEE6', use: 'Text and primary buttons' },
+  { token: '--color-text-muted', value: '#BDB7AC', use: 'Paragraphs' },
+  { token: '--color-text-subtle', value: '#A39E95', use: 'Labels and metadata' },
+];
+
+const typeScale = [
+  { token: '--text-display', sample: 'Stories in motion.', className: 'ts-display' },
+  { token: '--text-h1', sample: 'Filmmaking', className: 'ts-h1' },
+  { token: '--text-h2', sample: 'Selected work', className: 'ts-h2' },
+  { token: '--text-h3', sample: 'Brand films', className: 'ts-h3' },
+  {
+    token: '--text-lead',
+    sample: 'We make animation, illustration and films for brands and storytellers.',
+    className: 'ts-lead',
+  },
+  {
+    token: '--text-body',
+    sample: 'Every frame, drawing and cut serves the idea, never the other way round.',
+    className: 'ts-body',
+  },
+  { token: '--text-small', sample: 'We reply within [response time].', className: 'ts-small' },
+];
+---
+
+<BaseLayout title="Styleguide">
+  <main class="container sg">
+    <header class="sg__header">
+      <p class="label">Iteration 0 · Design tokens</p>
+      <h1 class="sg__title">Styleguide</h1>
+      <p class="sg__lead">
+        Silver Screen palette, Albert Sans and the base components. Values come from
+        <code>src/styles/tokens.css</code>.
+      </p>
+    </header>
+
+    <section class="section" aria-labelledby="sg-colour">
+      <h2 id="sg-colour" class="sg__h2">
+        Colour
+      </h2>
+      <ul class="swatches" role="list">
+        {colours.map((c) => (
+          <li class="swatch">
+            <span class="swatch__chip" style={`background: var(${c.token})`} />
+            <span class="swatch__name">{c.use}</span>
+            <span class="label">
+              {c.token} · {c.value}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="section" aria-labelledby="sg-type">
+      <h2 id="sg-type" class="sg__h2">
+        Typography
+      </h2>
+      <div class="type">
+        {typeScale.map((t) => (
+          <div class="type__row">
+            <span class="label">{t.token}</span>
+            <p class={t.className}>{t.sample}</p>
+          </div>
+        ))}
+        <div class="type__row">
+          <span class="label">.outline-text</span>
+          <p class="ts-display">
+            <span class="outline-text">Stories</span> in motion.
+          </p>
+        </div>
+        <div class="type__row">
+          <span class="label">.label</span>
+          <p class="label">Client · Brand film · 2026</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="sg-buttons">
+      <h2 id="sg-buttons" class="sg__h2">
+        Buttons
+      </h2>
+      <div class="row">
+        <Button>Watch the reel</Button>
+        <Button variant="secondary">See our work</Button>
+        <Button href="#sg-buttons" variant="secondary" size="small">
+          Start a project
+        </Button>
+      </div>
+      <p class="sg__note">Press Tab to check the focus ring on each button.</p>
+    </section>
+
+    <section class="section" aria-labelledby="sg-form">
+      <h2 id="sg-form" class="sg__h2">
+        Form field
+      </h2>
+      <div class="field">
+        <label for="sg-name">Your name *</label>
+        <input id="sg-name" type="text" placeholder="Jane Doe" />
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="sg-media">
+      <h2 id="sg-media" class="sg__h2">
+        Media frame
+      </h2>
+      <div class="frame">
+        <span class="label">Video · 16:9 · poster frame</span>
+      </div>
+    </section>
+
+    <section class="section sg__end" aria-labelledby="sg-cta">
+      <h2 id="sg-cta" class="visually-hidden">
+        Call-to-action band
+      </h2>
+      <div class="cta">
+        <p class="cta__title">Have a story to tell?</p>
+        <a class="cta__button" href="/">
+          Start a project
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .sg__header {
+    padding-top: var(--space-8);
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .sg__title {
+    font-size: var(--text-h1);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-display);
+  }
+
+  .sg__lead {
+    max-width: 44rem;
+    font-size: var(--text-lead);
+    color: var(--color-text-muted);
+  }
+
+  .sg__lead code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+  }
+
+  .sg__h2 {
+    font-size: var(--text-h2);
+    margin-bottom: var(--space-6);
+  }
+
+  .sg__note {
+    margin-top: var(--space-4);
+    font-size: var(--text-small);
+    color: var(--color-text-muted);
+  }
+
+  .sg__end {
+    padding-bottom: var(--section-gap);
+  }
+
+  /* Colour swatches */
+  .swatches {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--grid-gap);
+  }
+
+  .swatch {
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .swatch__chip {
+    display: block;
+    height: 96px;
+    border: 1px solid var(--color-border-strong);
+  }
+
+  .swatch__name {
+    font-weight: var(--weight-bold);
+  }
+
+  /* Type scale */
+  .type {
+    display: grid;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .type__row {
+    display: grid;
+    gap: var(--space-2);
+    padding-block: var(--space-5);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .ts-display {
+    font-size: var(--text-display);
+    font-weight: var(--weight-heavy);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-display);
+  }
+
+  .ts-h1 {
+    font-size: var(--text-h1);
+    font-weight: var(--weight-heavy);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-display);
+  }
+
+  .ts-h2 {
+    font-size: var(--text-h2);
+    font-weight: var(--weight-heavy);
+    letter-spacing: var(--tracking-heading);
+  }
+
+  .ts-h3 {
+    font-size: var(--text-h3);
+    font-weight: var(--weight-heavy);
+  }
+
+  .ts-lead {
+    font-size: var(--text-lead);
+    color: var(--color-text-muted);
+  }
+
+  .ts-body {
+    font-size: var(--text-body);
+    color: var(--color-text-muted);
+  }
+
+  .ts-small {
+    font-size: var(--text-small);
+    color: var(--color-text-muted);
+  }
+
+  /* Buttons row */
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  /* Form field */
+  .field {
+    display: grid;
+    gap: var(--space-2);
+    max-width: 420px;
+  }
+
+  .field label {
+    font-size: var(--text-small);
+    font-weight: var(--weight-semibold);
+  }
+
+  .field input {
+    min-height: var(--control-height);
+    padding-inline: var(--space-4);
+    background: var(--color-surface-raised);
+    border: 1.5px solid var(--color-border-input);
+    border-radius: var(--radius);
+  }
+
+  /* Media frame */
+  .frame {
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+  }
+
+  /* CTA band */
+  .cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-5);
+    padding: var(--space-8) var(--space-7);
+    background: var(--color-text);
+    color: var(--color-on-silver);
+  }
+
+  .cta__title {
+    font-size: var(--text-h2);
+    font-weight: var(--weight-heavy);
+    letter-spacing: var(--tracking-heading);
+    line-height: var(--leading-snug);
+  }
+
+  .cta__button {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--control-height);
+    padding-inline: var(--space-5);
+    background: var(--color-on-silver);
+    color: var(--color-text);
+    font-weight: var(--weight-bold);
+    text-decoration: none;
+  }
+
+  .cta__button:hover {
+    color: #ffffff;
+  }
+
+  .cta__button:focus-visible {
+    outline-color: var(--color-on-silver);
+  }
+
+  @media (max-width: 720px) {
+    .cta {
+      padding: var(--space-6) var(--space-5);
+    }
+  }
+</style>

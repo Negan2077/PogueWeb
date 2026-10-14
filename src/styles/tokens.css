@@ -1,0 +1,81 @@
+/*
+ * Design tokens — Silver Screen.
+ * Source of truth: docs/design/design-tokens.md. Change both together.
+ */
+:root {
+  /* Colour */
+  --color-bg: #111114;
+  --color-surface: #24242b;
+  --color-surface-raised: #1b1b20;
+  --color-border: #2e2e36;
+  --color-border-strong: #4a4a55;
+  --color-border-input: #6b6b78;
+  --color-text: #f2eee6;
+  --color-text-muted: #bdb7ac;
+  --color-text-subtle: #a39e95;
+  --color-on-silver: #111114;
+
+  /* Type families (self-hosted via Fontsource, see BaseLayout) */
+  --font-sans: 'Albert Sans Variable', 'Albert Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Type scale (fluid display sizes shrink on phones) */
+  --text-display: clamp(2.75rem, 7vw, 6rem); /* 44 → 96px */
+  --text-h1: clamp(2.5rem, 6vw, 5rem); /* 40 → 80px */
+  --text-h2: clamp(2rem, 3.5vw, 2.5rem); /* 32 → 40px */
+  --text-h3: 1.625rem; /* 26px */
+  --text-lead: 1.1875rem; /* 19px */
+  --text-body: 1.0625rem; /* 17px */
+  --text-small: 0.9375rem; /* 15px */
+  --text-label: 0.75rem; /* 12px */
+
+  --weight-regular: 400;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-heavy: 800;
+
+  --leading-tight: 0.96;
+  --leading-snug: 1.1;
+  --leading-body: 1.6;
+
+  --tracking-display: -0.025em;
+  --tracking-heading: -0.01em;
+  --tracking-label: 0.06em;
+
+  --outline-stroke: 1.5px;
+
+  /* Spacing and layout */
+  --container-max: 1280px;
+  --gutter: 40px;
+  --section-gap: 96px;
+  --grid-gap: 24px;
+  --grid-gap-lg: 32px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* Controls */
+  --control-height: 52px;
+  --control-height-sm: 44px;
+  --radius: 0;
+  --focus-ring: 2px solid var(--color-text);
+  --focus-offset: 3px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+}
+
+@media (max-width: 720px) {
+  :root {
+    --gutter: 16px;
+    --section-gap: 64px;
+  }
+}

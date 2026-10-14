@@ -1,0 +1,70 @@
+---
+// Button or link styled as a button.
+// Primary = silver fill, black text. Secondary = silver outline.
+interface Props {
+  variant?: 'primary' | 'secondary';
+  href?: string;
+  type?: 'button' | 'submit';
+  size?: 'default' | 'small';
+}
+
+const { variant = 'primary', href, type = 'button', size = 'default' } = Astro.props;
+const classes = ['btn', `btn--${variant}`, size === 'small' && 'btn--small'];
+---
+
+{href ? (
+  <a href={href} class:list={classes}>
+    <slot />
+  </a>
+) : (
+  <button type={type} class:list={classes}>
+    <slot />
+  </button>
+)}
+
+<style>
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    min-height: var(--control-height);
+    padding-inline: var(--space-5);
+    border: 2px solid var(--color-text);
+    border-radius: var(--radius);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: var(--weight-bold);
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      background-color var(--duration-fast) var(--ease-out),
+      color var(--duration-fast) var(--ease-out);
+  }
+
+  .btn--small {
+    min-height: var(--control-height-sm);
+    padding-inline: var(--space-4);
+    font-weight: var(--weight-semibold);
+  }
+
+  .btn--primary {
+    background: var(--color-text);
+    color: var(--color-on-silver);
+  }
+
+  .btn--primary:hover {
+    background: #ffffff;
+    color: var(--color-on-silver);
+  }
+
+  .btn--secondary {
+    background: transparent;
+    color: var(--color-text);
+  }
+
+  .btn--secondary:hover {
+    background: var(--color-text);
+    color: var(--color-on-silver);
+  }
+</style>
