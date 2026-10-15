@@ -4,14 +4,14 @@ The website of [STUDIO NAME], a production house making animation, 2D illustrati
 
 ## Stack
 
-| Layer     | Choice                                              | Decision                                              |
-| --------- | --------------------------------------------------- | ----------------------------------------------------- |
-| Framework | Astro 6 + TypeScript (strict), Node 22 LTS          | [ADR-0002](docs/decisions/0002-framework-astro.md)    |
-| Hosting   | Cloudflare Pages (preview deploy per pull request)  | [ADR-0003](docs/decisions/0003-hosting-cloudflare.md) |
-| Content   | Astro content collections → Sanity from Iteration 2 | [ADR-0004](docs/decisions/0004-content-sanity.md)     |
-| Video     | Bunny Stream                                        | [ADR-0005](docs/decisions/0005-video-bunny-stream.md) |
-| Enquiries | Astro action + Turnstile + Resend + Google Sheet    | [ADR-0006](docs/decisions/0006-enquiry-pipeline.md)   |
-| Styling   | Plain CSS + design tokens, self-hosted fonts        | [ADR-0007](docs/decisions/0007-styling-css-tokens.md) |
+| Layer     | Choice                                                 | Decision                                                      |
+| --------- | ------------------------------------------------------ | ------------------------------------------------------------- |
+| Framework | Astro 6 + TypeScript (strict), Node 22 LTS             | [ADR-0002](docs/decisions/0002-framework-astro.md)            |
+| Hosting   | Cloudflare Workers (static assets), preview per branch | [ADR-0009](docs/decisions/0009-hosting-cloudflare-workers.md) |
+| Content   | Astro content collections → Sanity from Iteration 2    | [ADR-0004](docs/decisions/0004-content-sanity.md)             |
+| Video     | Bunny Stream                                           | [ADR-0005](docs/decisions/0005-video-bunny-stream.md)         |
+| Enquiries | Astro action + Turnstile + Resend + Google Sheet       | [ADR-0006](docs/decisions/0006-enquiry-pipeline.md)           |
+| Styling   | Plain CSS + design tokens, self-hosted fonts           | [ADR-0007](docs/decisions/0007-styling-css-tokens.md)         |
 
 ## Getting started
 

@@ -55,10 +55,15 @@ An empty site, styled with the Silver Screen tokens and Albert Sans, deploying a
 
 ## Log
 
-| Date       | Did                                                                                                                                                                       | Blocked by / Learned                                                                |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| 2026-10-14 | Chose the stack; wrote ADRs 0001–0007 and this docs kit                                                                                                                   | —                                                                                   |
-| 2026-10-14 | Wrote starter files: configs (Prettier, ESLint, EditorConfig, CI), `tokens.css`, `global.css`, `BaseLayout`, `Button`, holding page, `/styleguide`; wrote `docs/setup.md` | Files written but not yet installed or built: run `docs/setup.md` steps 2–6 locally |
+| Date       | Did                                                                                                                                                                       | Blocked by / Learned                                                                                      |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| 2026-10-14 | Chose the stack; wrote ADRs 0001–0007 and this docs kit                                                                                                                   | —                                                                                                         |
+| 2026-10-14 | Wrote starter files: configs (Prettier, ESLint, EditorConfig, CI), `tokens.css`, `global.css`, `BaseLayout`, `Button`, holding page, `/styleguide`; wrote `docs/setup.md` | Files written but not yet installed or built: run `docs/setup.md` steps 2–6 locally                       |
+| 2026-10-14 | Set up project, installed tools                                                                                                                                           | pnpm missing; `npm -g` blocked by macOS permissions → installed pnpm with its install script              |
+| 2026-10-14 | Installed dev tools                                                                                                                                                       | TypeScript 7 installed by default, breaks ESLint → pinned 6.0 (ADR-0008); approved simple-git-hooks build |
+| 2026-10-14 | Copied kit                                                                                                                                                                | Hidden dotfiles not copied by Finder → recreated from Terminal; learned Cmd+Shift+.                       |
+| 2026-10-14 | Pushed to GitHub                                                                                                                                                          | Homebrew not writable → installed gh to ~/.local/bin                                                      |
+| 2026-10-15 | Deployed                                                                                                                                                                  | Pages no longer offered → Workers + wrangler.jsonc (ADR-0009); site live                                  |
 
 ## Review
 
