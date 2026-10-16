@@ -1,4 +1,4 @@
-# [STUDIO NAME] — Website
+# POGUE — Website
 
 The website of [STUDIO NAME], a production house making animation, 2D illustration and films. Video-led, dark "Silver Screen" design, built to turn visitors into enquiries.
 
