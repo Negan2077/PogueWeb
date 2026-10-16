@@ -1,8 +1,8 @@
 # ADR-NNNN: [Short title of the decision]
 
-- **Status:** Proposed | Accepted | Superseded by ADR-NNNN
-- **Date:** YYYY-MM-DD
-- **Iteration:** [e.g. 0 — Foundations]
+- **Status:** Accepted
+- **Date:** 2026-10-15
+- **Iteration:** 0
 
 ## Context
 

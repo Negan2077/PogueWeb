@@ -14,3 +14,8 @@ All notable changes to this website. Format based on [Keep a Changelog](https://
 - `Button` component (primary / secondary, link or button).
 - Temporary holding page and a `/styleguide` page.
 - Tooling: Prettier, ESLint, EditorConfig, pre-commit hook, GitHub Actions CI.
+
+### Changed
+
+- Hosting moved from Cloudflare Pages to Cloudflare Workers with static assets (ADR-0009).
+- TypeScript pinned to 6.0 (ADR-0008).

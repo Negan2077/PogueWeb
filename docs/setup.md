@@ -117,19 +117,32 @@ On GitHub:
 - **Milestones:** one per iteration, `Iteration 0 — Foundations` … `Iteration 7 — Launch`
 - **Branch protection** for `main` (Settings → Branches): require a pull request and the `CI / check` status check
 
-## 8. Connect Cloudflare Pages
+## 8. Connect Cloudflare (Workers) — see ADR-0009
 
-In the Cloudflare dashboard: **Workers & Pages → Create → Pages → Connect to Git**, then pick the repository.
+1. Install Wrangler: `pnpm add -D wrangler` (if pnpm reports ignored build scripts, run `pnpm approve-builds` and approve them).
+2. Create `wrangler.jsonc` in the project root:
 
-| Setting                | Value                 |
-| ---------------------- | --------------------- |
-| Production branch      | `main`                |
-| Framework preset       | Astro                 |
-| Build command          | `pnpm build`          |
-| Build output directory | `dist`                |
-| Environment variable   | `NODE_VERSION` = `22` |
+```jsonc
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "studio-website",
+  "compatibility_date": "2026-10-15",
+  "assets": { "directory": "./dist" },
+}
+```
 
-Save and deploy. You get a production URL (`*.pages.dev`), and every pull request gets its own preview URL.
+3. Add `.wrangler/` to `.gitignore`, then commit and push.
+4. Cloudflare dashboard: **Workers & Pages → Create → Import a repository** → choose the repository.
+
+| Field                                      | Value                                                      |
+| ------------------------------------------ | ---------------------------------------------------------- |
+| Project name                               | `studio-website` (must match `"name"` in `wrangler.jsonc`) |
+| Build command                              | `pnpm build`                                               |
+| Deploy command                             | `npx wrangler deploy` (default)                            |
+| Preview builds for non-production branches | On                                                         |
+| Advanced → variable                        | `PNPM_VERSION` = output of `pnpm --version`                |
+
+5. Deploy. The site is served at `studio-website.<subdomain>.workers.dev`. Node's version comes from `.nvmrc`.
 
 ## 9. Test the whole loop (and accept the ADRs)
 
