@@ -62,9 +62,9 @@ An empty site, styled with the Silver Screen tokens and Albert Sans, deploying a
 
 ## Review
 
-- **Shipped:**
-- **Not shipped, and why:**
-- **What went well:**
-- **What to change next iteration:**
-- **Decisions made (ADRs):** 0001–0007
-- **Carried into next iteration:**
+- **Shipped:** Astro project, design tokens, styleguide, CI, docs kit, live site on Cloudflare Workers.
+- **Not shipped, and why:** Branch protection (see below).
+- **What went well:** Docs and ADRs made every change of plan easy to record.
+- **What to change next iteration:** Check tool versions before installing; read errors fully before retrying.
+- **Decisions made (ADRs):** 0001–0009 (0003 superseded by 0009).
+- **Carried into next iteration:** Real logo, domain decision.
